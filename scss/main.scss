@@ -1,0 +1,53 @@
+@import "../reset.css";
+
+@import "variables/breakpoints";
+@import "variables/fonts";
+@import "variables/colors";
+
+@import "sections/header";
+@import "sections/opening";
+@import "sections/statistics";
+@import "sections/benefits";
+@import "sections/pricing";
+@import "sections/contacts";
+@import "sections/footer";
+@import "sections/calculator";
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+h1 {
+  font-family: $mainFont;
+  font-size: 49px;
+}
+
+h2 {
+  font-family: $secondFont;
+  font-size: 36px;
+  padding-bottom: 35px;
+}
+
+span {
+  font-family: $secondFont;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: white;
+}
+
+p,
+li {
+  font-family: $secondFont;
+}
+
+p {
+  font-size: 16px;
+}

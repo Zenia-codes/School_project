@@ -1,0 +1,141 @@
+@import "../variables/breakpoints";
+@import "../variables/colors";
+@import "../variables/fonts";
+
+.benefits {
+  width: 100%;
+  background-color: rgb(244, 244, 244);
+  padding: 100px 0;
+
+  .benefits-container {
+    max-width: 800px;
+  }
+
+  .benefits-single {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #e8e9ed;
+    border-radius: 5px;
+    padding: 0 20px;
+    margin-bottom: 30px;
+
+    .benefits-text {
+      margin: 40px 10px 50px 10px;
+    }
+
+    @media (min-width: $mobileBreakPoint) {
+      display: flex;
+      flex-direction: row;
+
+      .benefits-color1::after {
+        content: "";
+        background-color: nth($boxColors, 1);
+        width: 80%;
+        height: 4px;
+        border-radius: 2px;
+        display: block;
+        margin-top: 50px;
+      }
+
+      .benefits-color2::after {
+        content: "";
+        background-color: nth($boxColors, 3);
+        width: 80%;
+        height: 4px;
+        border-radius: 2px;
+        display: block;
+        margin-top: 50px;
+      }
+
+      .benefits-color3::after {
+        content: "";
+        background-color: nth($boxColors, 2);
+        width: 80%;
+        height: 4px;
+        border-radius: 2px;
+        display: block;
+        margin-top: 50px;
+      }
+    }
+  }
+
+  .benefits-reverse {
+    flex-direction: column-reverse !important;
+
+    @media (min-width: $mobileBreakPoint) {
+      flex-direction: row !important;
+    }
+  }
+
+  .benefits-double {
+    .benefits-single--image {
+      background-color: nth($list: $boxColors, $n: 2);
+    }
+
+    @media (min-width: $mobileBreakPoint) {
+      display: flex;
+      gap: 30px;
+    }
+  }
+}
+
+.benefits-image--notebook {
+  position: relative;
+  margin: 0 15px;
+
+  img {
+    width: 230px;
+    padding: 55px 0 10px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  &::before {
+    content: "";
+    width: 120px;
+    height: 120px;
+    display: block;
+    background-color: nth($list: $boxColors, $n: 1);
+    border-radius: 20px;
+    position: absolute;
+    right: -8px;
+    top: 30px;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+}
+
+.benefits-image--phone {
+  position: relative;
+  margin: 0 15px;
+
+  img {
+    width: 250px;
+    padding: 50px 0 0 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &::before {
+    content: "";
+    width: 170px;
+    height: 170px;
+    display: block;
+    background-color: nth($list: $boxColors, $n: 3);
+    border-radius: 50%;
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+}
+
+.benefits-image--trumpet {
+  img {
+    width: 220px;
+    padding: 20px 0 0 0;
+  }
+}

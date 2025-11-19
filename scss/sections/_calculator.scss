@@ -1,0 +1,200 @@
+.calc {
+  padding: 30px 15px;
+  margin-top: 40px;
+  background-color: $colorLightGrey;
+
+  h2 {
+    text-align: center;
+  }
+
+  &__columns {
+    max-width: 865px;
+    margin: 50px auto 0;
+    display: block;
+
+    @media (min-width: $mobileBreakPoint) {
+      display: flex;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    margin-right: 0;
+
+    @media (min-width: $mobileBreakPoint) {
+      width: 50%;
+      margin-right: 20px;
+    }
+  }
+
+  &__input input,
+  &__select .select__input {
+    color: $colorSmallFonts;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid $primaryBrand;
+    padding: 11px 20px;
+    line-height: 1em;
+    font-size: 0.8125rem;
+    box-shadow: 0px 3px 6px $boxShadow;
+    margin-bottom: 20px;
+    background-color: white;
+  }
+
+  &__input {
+    input {
+      &::placeholder {
+        color: $colorSmallFonts;
+      }
+    }
+  }
+
+  &__select {
+    position: relative;
+
+    .select__input {
+      position: relative;
+      height: 40px;
+      vertical-align: middle;
+      padding: 13px 20px;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 14px;
+        width: 8px;
+        height: 8px;
+
+        border-right: 2px solid $primaryBrand;
+        border-bottom: 2px solid $primaryBrand;
+
+        transform: rotate(45deg);
+
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .select__dropdown {
+      display: none;
+      position: absolute;
+      z-index: 1;
+      background-color: white;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #dcdcdc;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      top: 50px;
+      li {
+        font-size: 13px;
+        padding: 10px 20px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $colorLightGrey;
+          font-weight: 700;
+        }
+      }
+    }
+
+    &.open {
+      .select__input::after {
+        transform: rotate(225deg);
+      }
+
+      .select__dropdown {
+        display: block;
+      }
+    }
+  }
+
+  .form__checkbox {
+    .consent__text {
+      padding-top: 4px;
+    }
+  }
+
+  &__summary {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: $mobileBreakPoint) {
+      width: 50%;
+      margin-left: 20px;
+      margin-top: 0;
+    }
+
+    .summary__total,
+    .list__item {
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      border-radius: 6px;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 0.875rem;
+      display: none;
+
+      &.open {
+        display: flex;
+      }
+    }
+
+    .summary__total {
+      width: 50%;
+      align-self: flex-end;
+      margin-top: 22px;
+      padding: 8px 20px;
+      background-color: $primaryBrand;
+
+      .total__price {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+    }
+
+    .list__item {
+      padding: 8px 40px 8px 20px;
+      background-color: $colorGreenButton;
+      margin-bottom: 8px;
+
+      .item {
+        &__price {
+          font-weight: 700;
+          font-size: 1.125rem;
+        }
+      }
+    }
+  }
+}
+
+// tlačítko pro smazání položky
+.list__item {
+  position: relative;
+}
+
+.item__remove {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 3px 6px;
+  cursor: pointer;
+  font-size: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.list__item.open .item__remove {
+  opacity: 1;
+  pointer-events: auto;
+}

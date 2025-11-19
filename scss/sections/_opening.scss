@@ -1,0 +1,35 @@
+@import "../variables/colors";
+@import "../variables/fonts";
+@import "../mixins";
+
+.opening {
+  margin-top: 100px;
+  flex-direction: column;
+  text-align: center;
+
+  .opening-title {
+    margin-bottom: 30px;
+  }
+
+  .opening-article {
+    margin-top: 20px;
+    margin-bottom: 65px;
+    padding: 0 70px;
+  }
+
+  .image-bg {
+    width: 100%;
+    background: url(./assets/Background.png) no-repeat center/cover;
+    aspect-ratio: 16/9;
+    margin-bottom: 100px;
+  }
+
+  .btn {
+    @include button($paddingMainButton);
+    background-color: $colorMainButton;
+
+    @media (max-width: 500px) {
+      padding: 1em 6em;
+    }
+  }
+}

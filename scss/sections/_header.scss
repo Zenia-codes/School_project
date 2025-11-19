@@ -1,0 +1,119 @@
+@import "../variables/breakpoints";
+@import "../variables/fonts";
+@import "../variables/colors";
+@import "../mixins";
+
+.header {
+  height: 70px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  position: relative;
+  z-index: 10;
+
+  .header_container {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    @include logoStyle;
+  }
+
+  //Mobilní navigace (schovaná defaultně)
+  .navigation_menu {
+    position: absolute;
+    top: 80px; // výška headeru + 10px navíc pro zachování stínu
+    left: 0;
+    right: 0;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+    .ul_seznam {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 20px;
+      margin: 0;
+      position: relative;
+
+      li {
+        margin: 10px 0;
+
+        a {
+          font-size: 11px;
+          letter-spacing: 2px;
+          color: $colorSmallFonts;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: color 0.2s, font-weight 0.2s, transform 0.2s;
+          display: block;
+          padding: 10px 0;
+        }
+
+        a:hover {
+          color: $colorFontHover;
+          font-weight: 700;
+          border-bottom: 3px solid $primaryBrand;
+        }
+      }
+    }
+  }
+
+  //Otevření menu přes checkbox
+  &:has(.menu_button_checkbox:checked) {
+    .navigation_menu {
+      max-height: 250px; // místo pro zobrazení položek
+    }
+  }
+
+  //Desktop verze
+  @media (min-width: $mobileBreakPoint) {
+    .menu_button {
+      display: none;
+    }
+
+    .navigation_menu {
+      position: static;
+      max-height: none;
+      overflow: visible;
+      box-shadow: none;
+
+      .ul_seznam {
+        flex-direction: row;
+        gap: 40px;
+        padding: 0;
+      }
+
+      li {
+        a:hover {
+          color: $colorFontHover;
+          font-weight: 700;
+          border-bottom: none !important;
+        }
+      }
+    }
+  }
+
+  // Hamburger button
+  .menu_button {
+    font-size: 22px;
+    color: $primaryBrand;
+    margin-left: 20px;
+    padding: 8px;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(240, 240, 240);
+      border-radius: 8px;
+    }
+
+    .menu_button_checkbox {
+      display: none;
+    }
+  }
+}

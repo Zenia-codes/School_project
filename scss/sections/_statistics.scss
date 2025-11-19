@@ -1,0 +1,80 @@
+@import "../variables/breakpoints";
+@import "../variables/colors";
+@import "../variables/fonts";
+
+.number-style {
+  font-family: $secondFont;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: black;
+}
+
+.circle {
+  width: 63px;
+  height: 63px;
+  border-radius: 50%;
+  position: relative;
+
+  & img {
+    position: absolute;
+  }
+
+  &.circle-color1 {
+    background-color: nth($boxColors, 1);
+  }
+  &.circle-color2 {
+    background-color: nth($boxColors, 3);
+  }
+  &.circle-color3 {
+    background-color: nth($boxColors, 2);
+  }
+}
+
+img[src*="Eye"] {
+  top: 20%;
+  left: 30%;
+}
+
+img[src*="Catalog"] {
+  top: 10%;
+}
+
+img[src*="Person"] {
+  top: 10%;
+}
+
+.title2 {
+  padding: 0 25px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.stat-boxes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  gap: 35px;
+
+  .statistic-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+
+    .statistic-text {
+      font-family: $secondFont;
+      color: $colorSmallFonts;
+    }
+  }
+
+  @media (min-width: $mobileBreakPoint) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

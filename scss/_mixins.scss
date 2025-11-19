@@ -1,0 +1,34 @@
+$paddingPriceButton: 1em 4em;
+$paddingSendButton: 1.2em 7em;
+$paddingMainButton: 1.25em 12.5em;
+
+@mixin button($padding) {
+  color: #fff;
+  text-decoration: none;
+  padding: $padding;
+  font-family: $secondFont;
+  border-radius: 40px;
+  box-shadow: 0px 2px 3px 0px grey;
+  transition: 0.2s;
+  font-weight: 700;
+  min-width: 6em;
+  max-width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+@mixin logoStyle($fontSize: 32px) {
+  font-family: $mainFont;
+  font-size: $fontSize;
+  color: $primaryBrand;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,131 @@
+@import "../variables/breakpoints";
+@import "../variables/colors";
+@import "../variables/fonts";
+@import "../mixins";
+
+.pricing-title {
+  margin: 70px 0 30px 0;
+  text-align: center;
+}
+
+.pricing-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media (min-width: 1200px) {
+    gap: 20px;
+  }
+}
+
+.pricing-box {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 10px 0;
+  border-radius: 18px;
+  flex-wrap: wrap;
+
+  .pricing-details {
+    padding: 0 20px;
+  }
+
+  .btn {
+    @include button($paddingPriceButton);
+    position: relative;
+    bottom: -25px;
+  }
+
+  .btn--basic {
+    background-color: $colorRedButton;
+  }
+
+  .btn--professional {
+    background-color: $colorMainButton;
+  }
+
+  .btn--premium {
+    background-color: $colorGreenButton;
+  }
+}
+
+.pricing-box--basic {
+  border: 1px solid nth($list: $boxColors, $n: 1);
+}
+
+.pricing-box--professional {
+  border: 1px solid nth($list: $boxColors, $n: 3);
+  box-shadow: 5px 10px 27px #07ace629;
+  max-width: 420px;
+  min-height: 300px;
+  padding: 60px 20px 0;
+  margin-top: 0px;
+}
+
+.pricing-box--premium {
+  border: 1px solid nth($list: $boxColors, $n: 2);
+}
+
+.pricing-item {
+  font-size: 14px;
+  margin-bottom: 20px;
+
+  &::before {
+    content: "";
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    margin-right: 10px;
+    background-image: url("./assets/Checkmark-1.svg");
+  }
+}
+
+.pricing-item-prof {
+  margin: 0 0 30px 0;
+}
+
+.pricing-item--not::before {
+  background-image: url("./assets/Close.svg");
+}
+
+.pricing-title1,
+.pricing-title3 {
+  font-family: $mainFont;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.pricing-title2 {
+  font-family: $mainFont;
+  font-weight: 600;
+  font-size: 21px;
+  margin-bottom: 11px;
+}
+
+.price {
+  font-size: 46px;
+  margin-bottom: 10px;
+}
+
+.price-color1 {
+  color: nth($list: $boxColors, $n: 1);
+}
+
+.price-color2 {
+  color: nth($list: $boxColors, $n: 3);
+}
+
+.price-color3 {
+  color: nth($list: $boxColors, $n: 2);
+}
+
+.pricing-limited {
+  font-family: $mainFont;
+  font-size: 12px;
+  font-weight: 700;
+}
