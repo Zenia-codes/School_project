@@ -4,7 +4,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build index.html --public-url ./"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.3",
