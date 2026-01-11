@@ -1,14 +1,13 @@
 {
-  "name": "sass",
-  "version": "2.0.0",
-  "source": "index.html",
+  "name": "school-project",
+  "version": "1.0.0",
+  "source": "src/index.html",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.6.0",
     "parcel": "^2.6.0",
-    "sass": "^1.92.0"
+    "sass": "^1.97.2"
   }
 }
