@@ -17,8 +17,12 @@ html,
 body {
   background-color: white;
   color: #222;
+  color-scheme: light;
+}
 
-  @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
     background-color: white;
     color: #222;
   }
