@@ -13,8 +13,13 @@
 @import "sections/footer";
 @import "sections/calculator";
 
+html {
+  background-color: white;
+}
+
 body {
   background-color: white;
+  color: #222;
 }
 
 * {
